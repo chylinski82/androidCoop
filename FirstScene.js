@@ -26,12 +26,6 @@ class FirstScene extends Phaser.Scene {
 
         // main
 
-        gameState.play = false;
-
-        this.input.on('pointerup', () => {
-            gameState.play = true;
-        });
-
         this.add.text(470, 100, 'Tap to play!', { fontSize: '30px', fill: '#000000' });
 
         gameState.grounds = this.physics.add.staticGroup();
@@ -41,7 +35,11 @@ class FirstScene extends Phaser.Scene {
         this.add.image(200, 250, 'rooster').setScale(.6);
 
         this.add.image(570, 300, 'grafitti').setScale(.85);
-      
+
+        this.input.on('pointerup', () => {
+            this.scene.start('Level1');
+            
+        });
     }
 
     update() {
@@ -52,11 +50,6 @@ class FirstScene extends Phaser.Scene {
         if (document.hasFocus()) {
             gameState.music.resume();
 
-        }
-        if (gameState.play) {
-            this.scene.stop('FirstScene');
-            this.scene.start('Level1');
-            
         }
     }
 }

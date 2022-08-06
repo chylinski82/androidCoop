@@ -21,7 +21,6 @@ class Level extends Phaser.Scene {
         this.load.image('basket', './images/basket.png');
         this.load.image('heart', './images/heart.png');
         this.load.image('hen', './images/henLeft.png');
-        this.load.image('coupRight', './images/coupRight.png');
         this.load.image('ground', './images/platform.png');
         this.load.image('brokenEgg', './images/brokenEgg.png');
         this.load.spritesheet('eggLeft', './images/eggLeftSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
@@ -117,7 +116,6 @@ class Level extends Phaser.Scene {
                     gameState.levelScore = 0;
                     gameState.lives = 3;
                     gameState.level = 1;
-                    this.scene.stop('Level');
                     this.scene.start('FirstScene');
                 }); 
             }          
@@ -298,7 +296,6 @@ class Level extends Phaser.Scene {
                         gameState.levelScore = 0;
                         gameState.lives = 3;
                         gameState.level = 1;
-                        this.scene.stop('Level');
                         this.scene.start('FirstScene');
                     });     
                 }   
