@@ -39,6 +39,7 @@ class FirstScene extends Phaser.Scene {
         this.input.on('pointerup', () => {
             this.scene.start('Level1');
             
+            
         });
     }
 

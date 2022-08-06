@@ -295,7 +295,7 @@ class Level extends Phaser.Scene {
                         gameState.score = 0;
                         gameState.levelScore = 0;
                         gameState.lives = 3;
-                        gameState.level = 1;
+                        gameState.level = 1;  
                         this.scene.start('FirstScene');
                     });     
                 }   
