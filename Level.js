@@ -187,6 +187,12 @@ class Level extends Phaser.Scene {
         });
 
         this.anims.create({
+            key: 'front',
+            frames: [ { key: 'android', frame: 0 } ],
+            frameRate: 1
+        });
+
+        this.anims.create({
             key: 'downUp',
             frames: this.anims.generateFrameNumbers('androidUpDown', { start: 0, end: 4}),
             frameRate: this.frameSpeed * 6,

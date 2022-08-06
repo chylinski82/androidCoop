@@ -5,6 +5,7 @@ function basketDownLeft() {
         gameState.character.anims.playReverse('downUp');
 
     } else if (gameState.basket.x !== 220) {
+        gameState.character.anims.play('front');
         gameState.character.anims.play('catchingDown');
 
     }

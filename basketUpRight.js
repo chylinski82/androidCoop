@@ -5,6 +5,7 @@ function basketUpRight() {
         gameState.character.anims.play('downUp');
 
     } else if (gameState.basket.x !== 580) {
+        gameState.character.anims.play('front');
         gameState.character.anims.play('catchingUp');
 
     }
