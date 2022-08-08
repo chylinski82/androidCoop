@@ -1,11 +1,14 @@
 function basketUpLeft() {
-    gameState.character.flipX = true
+    
 
     if (gameState.basket.y !== 320 && gameState.basket.x === 220) {
+        gameState.character.flipX = true;
         gameState.character.anims.play('downUp');
 
     }
     if (gameState.basket.x > 400) {
+        gameState.character.anims.play('front');
+        gameState.character.flipX = true;
         gameState.character.anims.play('catchingUp');
 
     }
