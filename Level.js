@@ -156,7 +156,7 @@ class Level extends Phaser.Scene {
         }
 
         // displaying character
-        gameState.character = this.add.sprite(400, 410, 'android').setScale(.75).setTint(0xff0066);
+        gameState.character = this.add.sprite(400, 410, 'androidTopTop').setScale(.75).setTint(0xff0066);
 
         // animations
 
