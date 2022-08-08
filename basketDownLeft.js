@@ -1,15 +1,14 @@
 function basketDownLeft() {
-    
-    if (gameState.basket.x > 400) {
-        gameState.character.anims.play('front');
-        gameState.character.flipX = true;
-        gameState.character.anims.play('catchingDown');
-    }
+    gameState.character.flipX = true;
+
     if (gameState.basket.y !== 470 && gameState.basket.x === 220) {
-        gameState.character.flipX = true;
         gameState.character.anims.playReverse('downUp');
 
     }
+    if (gameState.basket.x > 400) {
+        gameState.character.anims.play('topTop');
+    }
+    
 
     gameState.basket.destroy();       
     gameState.basket = gameState.baskets.create(220, 470, 'basket').setScale(.075);

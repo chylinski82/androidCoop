@@ -28,6 +28,7 @@ class Level extends Phaser.Scene {
         this.load.spritesheet('eggRight', './images/eggRightSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
         this.load.spritesheet('android', './images/androidSprite.png', { frameWidth: 600, frameHeight: 250 });
         this.load.spritesheet('androidUpDown', './images/androidSpriteUpDown.png', { frameWidth: 600, frameHeight: 250 });
+        this.load.spritesheet('androidTopTop', './images/androidSpriteTopTop.png', { frameWidth: 600, frameHeight: 250 });
     }
 
     create() {
@@ -188,9 +189,10 @@ class Level extends Phaser.Scene {
         });
 
         this.anims.create({
-            key: 'front',
-            frames: [ { key: 'android', frame: 0 } ],
-            frameRate: 1
+            key: 'topTop',
+            frames: this.anims.generateFrameNumbers('androidTopTop', { start: 0, end: 9}),
+            frameRate: this.frameSpeed * 6,
+            repeat: 0
         });
 
         this.anims.create({
