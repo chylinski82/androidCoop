@@ -205,6 +205,18 @@ class Level extends Phaser.Scene {
         gameState.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         gameState.keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
 
+        let rectangle1 = this.add.rectangle(130, 260, 360, 120, 0xFFF070).setAlpha(0).setInteractive();
+        rectangle1.on('pointerdown', basketUpLeft);
+
+        let rectangle2 = this.add.rectangle(670, 260, 360, 120, 0xff4000).setAlpha(0).setInteractive();
+        rectangle2.on('pointerdown', basketUpRight);
+
+        let rectangle3 = this.add.rectangle(130, 380, 360, 120, 0x990099).setAlpha(0).setInteractive();
+        rectangle3.on('pointerdown', basketDownLeft);
+
+        let rectangle4 = this.add.rectangle(670, 380, 360, 120, 0xFF6699).setAlpha(0).setInteractive();
+        rectangle4.on('pointerdown', basketDownRight);
+
         gameState.hen1 = this.add.image(47, 213, 'hen').setScale(0.05).setInteractive();
         gameState.hen1.on('pointerdown', basketUpLeft);
 
