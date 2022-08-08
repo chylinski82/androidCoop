@@ -23,6 +23,7 @@ class Level extends Phaser.Scene {
         this.load.image('hen', './images/henLeft.png');
         this.load.image('ground', './images/platform.png');
         this.load.image('brokenEgg', './images/brokenEgg.png');
+        this.load.audio('theme', 'audio/theme.mp3');
         this.load.spritesheet('eggLeft', './images/eggLeftSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
         this.load.spritesheet('eggRight', './images/eggRightSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
         this.load.spritesheet('android', './images/androidSprite.png', { frameWidth: 600, frameHeight: 250 });
