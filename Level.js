@@ -190,7 +190,7 @@ class Level extends Phaser.Scene {
 
         this.anims.create({
             key: 'topTop',
-            frames: this.anims.generateFrameNumbers('androidTopTop', { start: 0, end: 9}),
+            frames: this.anims.generateFrameNames('androidTopTop', { start: 0, end: 9}),
             frameRate: this.frameSpeed * 6,
             repeat: 0
         });
