@@ -6,7 +6,7 @@ function basketDownLeft() {
 
     }
     if (gameState.basket.x > 400) {
-        gameState.character.anims.play('catchingUp');
+        gameState.character.anims.play('catchingDown');
     }
     
 
