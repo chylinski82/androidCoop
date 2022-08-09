@@ -10,6 +10,8 @@ const gameState = {
     level: 1
 }
 
+
+
 config = {
     type: Phaser.AUTO,
     width: 800,
@@ -28,6 +30,9 @@ config = {
         orientation: Phaser.Scale.Orientation.LANDSCAPE,
         width: 800,
         height: 600
+    },
+    audio: {
+        disableWebAudio: true
     }
 }
 

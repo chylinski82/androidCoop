@@ -39,9 +39,9 @@ class FirstScene extends Phaser.Scene {
         this.add.image(570, 300, 'grafitti').setScale(.85);
 
         this.input.on('pointerup', () => {
+            this.scene.stop('FirstScene');
             this.scene.start('Level1');
-            
-            
+              
         });
     }
 
