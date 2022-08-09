@@ -28,7 +28,7 @@ class Level extends Phaser.Scene {
         this.load.spritesheet('eggRight', './images/eggRightSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
         this.load.spritesheet('android', './images/androidSprite.png', { frameWidth: 600, frameHeight: 250 });
         this.load.spritesheet('androidUpDown', './images/androidSpriteUpDown.png', { frameWidth: 600, frameHeight: 250 });
-        this.load.spritesheet('androidTopTop', './images/androidSpriteTopTop.png', { frameWidth: 600, frameHeight: 250 });
+      
     }
 
     create() {
@@ -143,7 +143,7 @@ class Level extends Phaser.Scene {
 
         gameState.levelText = this.add.text(290, 540, `Level: ${gameState.level}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '40px',  fill: '#FFFFFF' });
         
-        gameState.basket = gameState.baskets.create(-220, 320, 'basket').setScale(.075);
+        gameState.basket = gameState.baskets.create(400, -320, 'basket').setScale(.075);
         gameState.basket.rotation -= 0.5;
 
         gameState.heart1 = this.add.image(70, 60, 'heart').setScale(.04);
@@ -184,13 +184,6 @@ class Level extends Phaser.Scene {
         this.anims.create({
             key: 'catchingDown',
             frames: this.anims.generateFrameNumbers('android', { start: 5, end: 9}),
-            frameRate: this.frameSpeed * 6,
-            repeat: 0
-        });
-
-        this.anims.create({
-            key: 'topTop',
-            frames: this.anims.generateFrameNames('androidTopTop', { start: 0, end: 9}),
             frameRate: this.frameSpeed * 6,
             repeat: 0
         });

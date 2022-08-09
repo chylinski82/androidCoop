@@ -5,7 +5,7 @@ function basketUpLeft() {
         gameState.character.anims.play('downUp');
 
     }
-    if (gameState.basket.x > 400) {
+    if (gameState.basket.x >= 400) {
         gameState.character.anims.play('catchingUp');
 
     }

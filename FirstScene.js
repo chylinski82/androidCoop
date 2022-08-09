@@ -6,8 +6,8 @@ class FirstScene extends Phaser.Scene {
     preload() {
         this.load.image('rooster', './images/rooster.png');
         this.load.image('grafitti', './images/grafitti.png');
-        this.load.image('ground', 'images/platform.png');
-        this.load.audio('theme', 'audio/theme.mp3');
+        this.load.image('ground', './images/platform.png');
+        this.load.audio('theme', './audio/theme.mp3');
         
     }
 
@@ -26,7 +26,9 @@ class FirstScene extends Phaser.Scene {
 
         // main
 
-        this.add.text(470, 100, 'Tap to play!', { fontSize: '30px', fill: '#000000' });
+        this.add.text(470, 120, 'Tap to play!', { fontSize: '30px', fill: '#000000' });
+
+        gameState.highScoreText = this.add.text(270, 40, 'Hi Score: ' + localStorage.getItem("highscore"), { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#e68a00' });
 
         gameState.grounds = this.physics.add.staticGroup();
 

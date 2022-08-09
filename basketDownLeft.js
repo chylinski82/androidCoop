@@ -5,7 +5,7 @@ function basketDownLeft() {
         gameState.character.anims.playReverse('downUp');
 
     }
-    if (gameState.basket.x > 400) {
+    if (gameState.basket.x >= 400) {
         gameState.character.anims.play('catchingDown');
     }
     
