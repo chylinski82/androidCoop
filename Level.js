@@ -23,6 +23,7 @@ class Level extends Phaser.Scene {
         this.load.image('hen', './images/henLeft.png');
         this.load.image('ground', './images/platform.png');
         this.load.image('brokenEgg', './images/brokenEgg.png');
+        this.load.image('playPause', './images/playPause.svg');
         this.load.audio('theme', './audio/theme.mp3');
         this.load.spritesheet('eggLeft', './images/eggLeftSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
         this.load.spritesheet('eggRight', './images/eggRightSpritesheet.png', { frameWidth: 50, frameHeight: 50 });
@@ -137,11 +138,40 @@ class Level extends Phaser.Scene {
 
         gameState.ground = gameState.grounds.create(400, 568, 'ground').setScale(3);
 
+        gameState.exitFullScreen = this.add.rectangle(785, 15, 30, 30, 0xffff1a);
+
+        this.add.text(780, 5, 'X', { fontSize: '20px', fill: '0x000'});
+
+        gameState.exitFullScreen.setInteractive();
+
+        gameState.exitFullScreen.on('pointerup', () => this.scale.stopFullscreen());
+
         gameState.scoreText = this.add.text(560, 40, `Score: ${gameState.score}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#000000' });
 
         gameState.highScoreText = this.add.text(270, 40, `Hi Score: ${gameState.highscore}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#e68a00' });
 
         gameState.levelText = this.add.text(290, 540, `Level: ${gameState.level}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '40px',  fill: '#FFFFFF' });
+        
+        gameState.playPauseArea = this.add.rectangle(720, 560, 180, 80, 0x1a6600).setAlpha(0.01).setInteractive();
+
+        gameState.playPause = this.add.image(750, 560, 'playPause').setScale(.07);
+
+        gameState.playPauseText = this.add.text(660, 547, 'Pause', { fontFamily: 'Roboto Mono, monospace', fontSize: '20px',  fill: '#FFFFFF' });
+
+        gameState.isPaused = false;
+
+        gameState.playPauseArea.on('pointerdown', () => {
+            if(!gameState.isPaused) {
+                game.loop.sleep();
+                gameState.isPaused = true;
+
+            }
+            else {
+                game.loop.wake();
+                gameState.isPaused = false;
+               
+            }
+        });
         
         gameState.basket = gameState.baskets.create(400, -320, 'basket').setScale(.075);
         gameState.basket.rotation -= 0.5;
@@ -234,6 +264,9 @@ class Level extends Phaser.Scene {
             gameState.music.pause();
             
         }
+
+        // keyboard controls
+
         if (gameState.keyQ.isDown) {
             basketUpLeft();
     
