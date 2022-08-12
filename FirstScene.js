@@ -7,7 +7,7 @@ class FirstScene extends Phaser.Scene {
         this.load.image('rooster', './images/rooster.png');
         this.load.image('grafitti', './images/grafitti.png');
         this.load.image('ground', './images/platform.png');
-        this.load.audio('theme', './audio/theme.mp3');
+        this.load.audio('theme', './audio/theme.ogg');
         
     }
 
