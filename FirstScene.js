@@ -21,8 +21,6 @@ class FirstScene extends Phaser.Scene {
 
         // audio
         gameState.music = this.sound.add('theme');
-        gameState.music.play();
-        gameState.music.loop = true; 
 
         // main
 
@@ -46,6 +44,9 @@ class FirstScene extends Phaser.Scene {
     }
 
     update() {
+        gameState.music.play();
+        gameState.music.loop = true; 
+
         if (!document.hasFocus()) {
             gameState.music.pause();
 

@@ -138,13 +138,13 @@ class Level extends Phaser.Scene {
 
         gameState.ground = gameState.grounds.create(400, 568, 'ground').setScale(3);
 
-        gameState.toggleFullScreen = this.add.rectangle(785, 15, 30, 30, 0xffff1a);
+        gameState.exitFullScreen = this.add.rectangle(785, 15, 30, 30, 0xffff1a);
 
         this.add.text(780, 5, 'X', { fontSize: '20px', fill: '0x000'});
 
-        gameState.toggleFullScreen.setInteractive();
+        gameState.exitFullScreen.setInteractive();
 
-        gameState.toggleFullScreen.on('pointerup', () => this.scale.stopFullscreen());
+        gameState.exitFullScreen.on('pointerup', () => this.scale.stopFullscreen());
 
         gameState.scoreText = this.add.text(560, 40, `Score: ${gameState.score}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#000000' });
 
