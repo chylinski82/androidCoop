@@ -21,6 +21,7 @@ class FirstScene extends Phaser.Scene {
 
         // audio
         gameState.music = this.sound.add('theme');
+        gameState.music.play();
         gameState.music.loop = true; 
 
         // main
@@ -36,8 +37,6 @@ class FirstScene extends Phaser.Scene {
         this.add.image(200, 250, 'rooster').setScale(.6);
 
         this.add.image(570, 300, 'grafitti').setScale(.85);
-
-        this.input.on('pointerdown', () => gameState.music.play());
 
         this.input.on('pointerup', () => {
             this.scene.stop('FirstScene');
