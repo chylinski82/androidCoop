@@ -35,6 +35,8 @@ class Level extends Phaser.Scene {
     create() {
         this.scale.startFullscreen();
 
+        gameState.isFullscreen = true;
+
         // ramps (chicken coops)
 
         const graphics = this.add.graphics();
@@ -138,17 +140,49 @@ class Level extends Phaser.Scene {
 
         gameState.ground = gameState.grounds.create(400, 568, 'ground').setScale(3);
 
-        gameState.exitFullScreen = this.add.rectangle(785, 15, 30, 30, 0xffff1a);
+        gameState.toggleFullScreen = this.add.rectangle(720, 15, 160, 30, 0xffff1a);
 
-        this.add.text(780, 5, 'X', { fontSize: '20px', fill: '0x000'});
+        gameState.fullscreeText = this.add.text(650, 5, 'full screen X ', { fontSize: '18px', fill: '0x000'});
 
-        gameState.exitFullScreen.setInteractive();
+        gameState.toggleFullScreen.setInteractive();
 
-        gameState.exitFullScreen.on('pointerup', () => this.scale.stopFullscreen());
+        gameState.toggleFullScreen.on('pointerup', () => {
+            if (gameState.isFullscreen) {
+                this.scale.stopFullscreen();
+                gameState.fullscreeText.setText('full screen O');
+                gameState.isFullscreen = false;
+
+            } else {
+                this.scale.startFullscreen();
+                gameState.fullscreeText.setText('full screen O');
+                gameState.isFullscreen = true;
+
+            }
+        });
 
         gameState.scoreText = this.add.text(560, 40, `Score: ${gameState.score}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#000000' });
 
         gameState.highScoreText = this.add.text(270, 40, `Hi Score: ${gameState.highscore}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#e68a00' });
+
+        gameState.musicText = this.add.text(30, 547, 'Music Off', { fontFamily: 'Roboto Mono, monospace', fontSize: '20px',  fill: '#FFFFFF' });
+
+        gameState.musicTextArea = this.add.rectangle(90, 560, 180, 80, 0x1a6600).setAlpha(0.01).setInteractive();
+
+        gameState.musicPause = false;
+
+        gameState.musicTextArea.on('pointerdown', () => {
+            if (!gameState.musicPause) {
+                gameState.music.pause();
+                gameState.musicText.setText('Music On');
+                gameState.musicPause = true;
+
+            } else {
+                gameState.music.resume();
+                gameState.musicText.setText('Music Off');
+                gameState.musicPause = false;
+
+            }
+        })
 
         gameState.levelText = this.add.text(290, 540, `Level: ${gameState.level}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '40px',  fill: '#FFFFFF' });
         
