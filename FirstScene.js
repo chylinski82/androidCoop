@@ -7,7 +7,6 @@ class FirstScene extends Phaser.Scene {
         this.load.image('rooster', './images/rooster.png');
         this.load.image('grafitti', './images/grafitti.png');
         this.load.image('ground', './images/platform.png');
-        this.load.audio('theme', './audio/theme.mp3');
         
     }
 
@@ -18,9 +17,6 @@ class FirstScene extends Phaser.Scene {
         const graphics = this.add.graphics();
         graphics.fillGradientStyle(0xffff99, 0xb3ffff, 0x009900, 0x99ff99,.5);
         graphics.fillRect(0, 0, 800, 600);
-
-        // audio
-        gameState.music = this.sound.add('theme');
 
         // main
 
@@ -44,16 +40,11 @@ class FirstScene extends Phaser.Scene {
     }
 
     update() {
-        gameState.music.play();
-        gameState.music.loop = true; 
-
-        if (!document.hasFocus()) {
-            gameState.music.pause();
-
-        }
-        if (document.hasFocus()) {
-            gameState.music.resume();
-
-        }
+        if (gameState.music && !document.hasFocus()) {
+            gameState.music.pause(); 
+       }
+       if (gameState.music && document.hasFocus()) {
+           gameState.music.resume();
+       }
     }
 }
