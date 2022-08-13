@@ -32,7 +32,6 @@ class Level extends Phaser.Scene {
     }
 
     create() {
-        this.scale.startFullscreen();
 
         // ramps (chicken coops)
 
@@ -136,14 +135,6 @@ class Level extends Phaser.Scene {
         // adding first images to the scene
 
         gameState.ground = gameState.grounds.create(400, 568, 'ground').setScale(3);
-
-        gameState.exitFullScreen = this.add.rectangle(785, 15, 30, 30, 0xffff1a);
-
-        this.add.text(780, 5, 'X', { fontSize: '20px', fill: '0x000'});
-
-        gameState.exitFullScreen.setInteractive();
-
-        gameState.exitFullScreen.on('pointerup', () => this.scale.stopFullscreen());
 
         gameState.scoreText = this.add.text(560, 40, `Score: ${gameState.score}`, { fontFamily: 'Roboto Mono, monospace', fontSize: '30px',  fill: '#000000' });
 
