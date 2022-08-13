@@ -4,12 +4,12 @@ class SoundScene extends Phaser.Scene {
     }
 
     preload(){
-        this.load.audio('theme', './audio/theme.mp3');
+        this.load.audio('theme2', './audio/theme2.mp3');
     }
 
     create() {
         this.input.once('pointerdown', _ => {
-            gameState.music = this.sound.add('theme');
+            gameState.music = this.sound.add('theme2');
             gameState.music.play();
             gameState.music.loop = true; 
         });
