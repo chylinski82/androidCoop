@@ -4,7 +4,7 @@ class SoundScene extends Phaser.Scene {
     }
 
     preload(){
-        this.load.audio('theme2', './audio/theme2.mp3');
+        this.load.audio('theme2', './audio/theme2.ogg');
     }
 
     create() {
