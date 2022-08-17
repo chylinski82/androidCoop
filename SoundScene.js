@@ -4,14 +4,14 @@ class SoundScene extends Phaser.Scene {
     }
 
     preload(){
-        this.load.audio('theme', './audio/theme.mp3');
+        this.load.audio('theme2', './audio/theme2.mp3');
     }
 
     create() {
         this.input.once('pointerdown', _ => {
             // UNLOCK audio, doesn't work immediately on iphone
             this.sound.unlock();
-            gameState.music = this.sound.add('theme', {loop: true});
+            gameState.music = this.sound.add('theme2', {loop: true});
             
             // if unlock worked, just play the sound
             if(!this.sound.locked){
